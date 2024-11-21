@@ -480,7 +480,7 @@ class Example(QMainWindow):
     def initUI(self):
         startAction = QAction(QIcon('start.png'), 'Start Solving', self)
         startAction.setShortcut('Ctrl+S')
-        startAction.setStatusTip('Open new File')
+        startAction.setStatusTip('Abrir nuevo archivo')
         startAction.triggered.connect(self.start)
 
         exitAction = QAction(QIcon('exit24.png'), 'Exit', self)
@@ -490,12 +490,12 @@ class Example(QMainWindow):
 
         openAction = QAction(QIcon('open.png'), 'Open', self)
         openAction.setShortcut('Ctrl+O')
-        openAction.setStatusTip('Open new File')
+        openAction.setStatusTip('Abrir nuevo archivo')
         openAction.triggered.connect(self.showDialog)
 
         inputAction = QAction(QIcon('open.png'), 'Professor', self)
         inputAction.setShortcut('Ctrl+P')
-        inputAction.setStatusTip('Set professor name')
+        inputAction.setStatusTip('Configurar Nombre de Docente')
         inputAction.triggered.connect(self.inputDialog)
 
         self.statusBar()
