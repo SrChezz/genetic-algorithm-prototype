@@ -157,9 +157,9 @@ class Algorithm:
         self.currentBestSize = 0
 
 
-# Number of working hours per day
+# Numero de horas laborales por dia
 DAY_HOURS = 4
-# Number of days in week
+# Numero de dias loaborables a la semana
 DAYS_NUM = 5
 
 # Schedule chromosome
@@ -319,7 +319,7 @@ class Schedule:
         # return smart pointer to offspring
         return n
 
-    # Performs mutation on chromosome
+    # Mutamos el cromosoma
     def Mutation(self):
             # check probability of mutation operation
             if randint(0, 32767) % 100 > self.mutationProbability:
@@ -478,22 +478,22 @@ class Example(QMainWindow):
         
         
     def initUI(self):
-        startAction = QAction(QIcon('start.png'), 'Start Solving', self)
+        startAction = QAction(QIcon('start.png'), 'Ejecutar algoritmo', self)
         startAction.setShortcut('Ctrl+S')
         startAction.setStatusTip('Abrir nuevo archivo')
         startAction.triggered.connect(self.start)
 
-        exitAction = QAction(QIcon('exit24.png'), 'Exit', self)
+        exitAction = QAction(QIcon('exit24.png'), 'Salir', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(self.close)
 
-        openAction = QAction(QIcon('open.png'), 'Open', self)
+        openAction = QAction(QIcon('open.png'), 'Abrir', self)
         openAction.setShortcut('Ctrl+O')
         openAction.setStatusTip('Abrir nuevo archivo')
         openAction.triggered.connect(self.showDialog)
 
-        inputAction = QAction(QIcon('open.png'), 'Professor', self)
+        inputAction = QAction(QIcon('open.png'), 'Docente', self)
         inputAction.setShortcut('Ctrl+P')
         inputAction.setStatusTip('Configurar Nombre de Docente')
         inputAction.triggered.connect(self.inputDialog)
@@ -501,7 +501,7 @@ class Example(QMainWindow):
         self.statusBar()
 
         menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
+        fileMenu = menubar.addMenu('&Opciones')
         fileMenu.addAction(openAction)
         fileMenu.addAction(startAction)
         fileMenu.addAction(inputAction)
@@ -513,21 +513,21 @@ class Example(QMainWindow):
         global professor
         professor = ''
         self.setGeometry(300, 400, 600, 600)
-        self.setWindowTitle('Schedule - Genetic Algorithm')
+        self.setWindowTitle('Generar horarios - Algoritmo Genetico')
 
         self.show()
 
     def inputDialog(self):
         print("show dialog")
-        text, ok = QInputDialog.getText(self, 'Input Dialog', 
-            "Enter professor's name:")
+        text, ok = QInputDialog.getText(self, 'Configurar Docente', 
+            "Ingrese nombre de docente")
         global professor
         professor = str(text)
         print(str(text))
 
     def showDialog(self):
         global fname
-        fname = QFileDialog.getOpenFileName(self, 'Open file')
+        fname = QFileDialog.getOpenFileName(self, 'Abrir archivo')
         if fname[0]:
             t = Thread(target=self.dial)
             t.start()
