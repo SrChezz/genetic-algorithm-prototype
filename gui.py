@@ -58,7 +58,7 @@ class Algorithm:
     def Start(self):
         # initialize new population with chromosomes randomly built using prototypes
         for it in range(len(self.chromosomes)):
-            # remove chromosomes from previous execution
+            # remover cromosomas de ejecuciones anteriores
             if self.chromosomes[ it ]:
                 del self.chromosomes[ it ]
 
@@ -723,7 +723,7 @@ class Example(QMainWindow):
                         qp.drawRect(XRect, YRect, WidthRect, HeightRect)
 
                     if j == 0 and i > 0:
-                        days = ["MON", "TUE", "WED", "THR", "FRI"]
+                        days = ["LUN", "MAR", "MI", "JUE", "VIE"]
                         print("draw text")
                         qp.drawText(r1, Qt.AlignCenter, str(days[i - 1]))
                         qp.drawRect(XRect, YRect, WidthRect, HeightRect)
